@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <title>Як читати помилки браузера - ТехноСтоп</title>
+</head>
+<body>
+    <header>
+        <a hred = "/" class="logo">ТехноСтоп</a> <nav>
+            <ul> <!--<ul> (від Unordered List) — маркований (невпорядкований) список-->
+                <li>  <!--елемент списку. Завжди лежить всередині <ul>-->
+                    <a href="#">Головна</a></li> <li> <!--a гіперпосилання. Атрибут href вказує, куди саме воно веде-->
+                    <a href="#">Статті</a></li> <li>
+                    <a href="#">Про нас</a></li> <li>
+                    <a href="#">Контакти</a></li> <li>
+                    <a href="#">Подкаст</a> </li>
+                </li>
+            </ul>
+        </nav>
+        <!--Атрибут href вказує, куди саме воно веде від Anchor(a) гіперпосилання-->
+        <a href = "#" class = "btn-login" >Увійти</a>
+    </header>
+    <div class ="container">
+        <main>
+            <article>
+                <header>
+                    <!--<figure> — контейнер для ілюстрацій, фотографій чи схем на які є посилання в тексті-->
+                    <figure>
+                        <img src = "error-console.jpg" alt ="Скриншот консолі браузера з підсвіченою помилкою"></figure>
+                        <h1>Як читати помилки браузера: гайд для першокурсника</h1> <p class="subtitle">Стек-трейси перестануть лякати, якщо знати, з чого вони складаються</p> <div class="article-meta">
+                        <time datetime="2026-05-11">11 травня 2026</time> <span>автор: Олена Петренко</span> <span>7 хв читання</span> </div>
+                </header>
+
+                <section>
+                    <h2>1. DevTools це не страшно</h2>
+                     <p>Перше, з чим стикається кожен веб-розробник це панель розробника. Натискаєш F12, і відкривається інший світ. 
+                        У цьому розділі ми пройдемось по найкорисніших вкладках
+                         і навчимось бачити те, що бачить браузер.</p> 
+                         <p>Особлива увага вкладці Сonsole. Саме там з'являються повідомлення про помилки в JavaScript.
+                             Кожне повідомлення має певну структуру, і коли ви її розумієте, лагодження стає просто крок за кроком.</p>
+                 </section>
+
+                 <section>
+                    <h2>2.Анатомія помилки</h2>
+                     <p>Типове повідомлення про помилку складається з кількох частин:</p> 
+                      <ul>
+                        <li>Тип помилки (TypeError, ReferenceErroг, SyntaxError тощо)</li>
+                         <li>Опис проблеми у людських словах</li>
+                          <li>Стек-трейс ланцюжок викликів, що привів до помилки</li>
+                         <li>Посилання на конкретний файл і рядок</li> 
+                        </ul>
+                 </section>
+
+                <section>
+                    <h2>3. Найчастіші помилки початківця</h2> 
+                    <p>Нижче - таблиця з помилками, які зустрічаються у 90% домашніх завдань першокурсників:</p> 
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Тип</th> <th>Що означає</th> <th>Як виправити</th> </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ReferenceError</td> <td>Звертаєтесь до неіснуючої змінної</td> <td>Перевірте написання, область видимості</td> </tr>
+                            <tr>
+                                <td>TypeError</td> <td>Операція над неправильним типом</td> <td>Подивіться, що саме у змінній на момент виклику</td> </tr>
+                            <tr>
+                                <td>SyntaxError</td> <td>Помилка у синтаксисі JS</td> <td>Запустіть код через лінтер</td> </tr>
+                            <tr>
+                                <td>404</td> <td>Файл/ресурс не знайдено</td> <td>Перевірте шлях у вкладці Network</td> </tr>
+                        </tbody>
+                    </table>
+                </section>
+            
+            <blockquote><p>«Помилка це не покарання, це підказка. Браузер каже вам, у якому саме рядку він не зміг продовжити роботу. Це найкоштовніша інформація, яку ви можете отримати.»</p>
+                 <footer> <cite>— Іван Коваль, ментор курсу</cite></footer>
+            </blockquote>
+            <p>
+                Звикайте відкривати консоль на кожному сайті, який ви будуєте. З досвідом стек-трейси стануть для вас читабельними так само, як ця стаття.
+            </p>
+
+            </article>
+        </main>
+
+        <aside>
+            <section class = "related-articles">
+                <h2>
+                    Схожі статті
+                </h2> 
+                <ul>
+                    <li>
+                        <a href="#">DevTools cheatsheet</a>
+                    </li>
+                    <li>
+                        <a href="#">10 трюків Console</a>
+                    </li>
+                    <li>
+                        <a href="#">Як читати Network</a>
+                    </li>
+                </ul>
+
+            </section>
+
+            <section class="subscribe-form">
+                <h2>Підписка</h2> <p>Один лист на тиждень, по суті:</p> <form action="#" method="POST">
+                    <label for="user-email">Ваш email</label>
+                    <input type="email" id="user-email" name="email" placeholder="ваш email" required> <button type="submit">Підписатися</button> </form>
+            </section>
+        </aside>
+    </div>
+    <footer>
+        <p>ТехноСтоп 2026</p> <address>
+            Контакти: <a href="mailto:hello@technostop.ua">hello@technostop.ua</a> </address>
+        <ul class="social-links">
+            <li><a href="#">Telegram</a></li> <li><a href="#">YouTube</a></li> <li><a href="#">GitHub</a></li> <li><a href="#">Twitter</a></li> </ul>
+    </footer>
+
+</body>
+</html>
+
+<!--<a href="#"> — це посилання на початок поточної сторінки-->

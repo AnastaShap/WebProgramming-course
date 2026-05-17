@@ -1,0 +1,333 @@
+/* ==========================================================================
+   1. ЗМІННІ (DESIGN TOKENS)
+   ========================================================================== */
+:root {
+    --color-primary: #2563eb;       /* Основний акцентний колір (наприклад, синій) */
+    --color-primary-hover: #1d4ed8;
+    --color-bg: #ffffff;
+    --color-surface: #f8f9fa;       /* Фон для бічної панелі та цитат */
+    --color-text-main: #1f2937;
+    --color-text-muted: #6b7280;
+    --color-border: #e5e7eb;
+    
+    --container-width: 1200px;
+    --font-main: system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================================================
+   2. БАЗОВЕ СКИДАННЯ
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   3. ШАПКА СТОРІНКИ (HEADER)
+   ========================================================================== */
+body > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    text-decoration: none;
+}
+
+body > header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+body > header nav a {
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+.btn-login {
+    padding: 0.5rem 1.25rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-login:hover {
+    background-color: var(--color-primary-hover);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   4. ГОЛОВНИЙ ЛЕЙАУТ (GRID)
+   ========================================================================== */
+.container {
+    max-width: var(--container-width);
+    margin: 2rem auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 частини для статті, 1 для бічної панелі */
+    gap: 3rem;
+    align-items: start;
+}
+
+/* ==========================================================================
+   5. СТАТТЯ (ARTICLE)
+   ========================================================================== */
+article header {
+    margin-bottom: 2rem;
+}
+
+article figure {
+    margin-bottom: 1.5rem;
+}
+
+article figure img {
+    border-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+    max-height: 400px;
+}
+
+article h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 0;
+}
+
+article section {
+    margin-bottom: 2.5rem;
+}
+
+article h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-main);
+}
+
+article p {
+    margin-bottom: 1rem;
+}
+
+article ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+article li {
+    margin-bottom: 0.5rem;
+}
+
+/* Таблиця */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th, td {
+    border: 1px solid var(--color-border);
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-surface);
+    font-weight: 600;
+}
+
+/* Цитата */
+blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background-color: var(--color-surface);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+blockquote footer {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   6. БІЧНА КОЛОНКА (ASIDE)
+   ========================================================================== */
+aside section {
+    background-color: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+aside h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+.related-articles ul {
+    list-style: none;
+    padding: 0;
+}
+
+.related-articles li {
+    margin-bottom: 0.75rem;
+}
+
+.subscribe-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.subscribe-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.subscribe-form input {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.subscribe-form button {
+    padding: 0.75rem;
+    background-color: var(--color-text-main);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.subscribe-form button:hover {
+    background-color: var(--color-primary);
+}
+
+/* ==========================================================================
+   7. ПІДВАЛ (FOOTER)
+   ========================================================================== */
+body > footer {
+    background-color: var(--color-text-main);
+    color: #fff;
+    padding: 3rem 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+body > footer a {
+    color: #9ca3af;
+}
+
+body > footer a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+address {
+    font-style: normal;
+}
+
+/* ==========================================================================
+   8. АДАПТИВНІСТЬ (МЕДІАЗАПИТИ)
+   ========================================================================== */
+@media (max-width: 992px) {
+    /* Перехід на 1 колонку на планшетах та мобільних */
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    body > header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    body > header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    article h1 {
+        font-size: 2rem;
+    }
+    
+    body > footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
