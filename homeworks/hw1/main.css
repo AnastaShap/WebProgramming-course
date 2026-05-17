@@ -1,0 +1,306 @@
+/* Базові стилі сторінки */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cbcbcb; /* Темніший сірий фон, як на референсі */
+    margin: 0;
+    padding: 30px 20px;
+}
+
+/* Колонки та макет */
+.container {
+    display: flex;
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* Перехід в одну колонку при < 650px */
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* Основні блоки-контейнери */
+.main-list, .sidebar {
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.main-list { 
+    flex: 2.3; 
+    padding: 25px;
+}
+
+/* Сайдбар без внутрішніх відступів, щоб роздільні лінії прилягали до країв */
+.sidebar { 
+    flex: 1; 
+    padding: 0; 
+}
+
+/* Секція додавання товару */
+.add-section {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.add-section input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.add-section input:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 0 1px #4285f4;
+}
+
+/* Елементи списку (Рядки) */
+.item-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 12px;
+}
+
+.item-row:last-child {
+    border-bottom: none;
+}
+
+.product-name { 
+    flex-grow: 1; 
+    font-size: 18px;
+    color: #000;
+}
+
+/* Якщо товар вже куплено (містить кнопку .btn-status "Не куплено"), закреслюємо назву */
+.item-row:has(.btn-status) .product-name {
+    text-decoration: line-through;
+}
+
+/* Плашки кількості (сірі бейджі) */
+.amount {
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+    min-width: 12px;
+}
+
+/* Контролі кількості (+ / -) */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-minus, .btn-plus {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-minus { background-color: #da4f49; } /* Червоний мінус */
+.btn-plus { background-color: #5bb75b; }  /* Зелений плюс */
+
+/* Кнопки статусів ("Куплено", "Не куплено") */
+.btn-status, .btn-bought {
+    background: #f5f5f5;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    color: #333;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.btn-add {
+    background-color: #4285f4; /* Насичений синій колір кнопки */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Кнопка видалення (х) */
+.btn-remove {
+    background-color: #da4f49;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Стилі секцій сайдбару */
+.sidebar section {
+    padding: 20px;
+}
+
+.sidebar section:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar h3 {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Елементи-теги в сайдбарі */
+.badge-item {
+    display: inline-flex !important;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.badge-item.bought {
+    text-decoration: line-through;
+}
+
+/* Круглий помаранчевий лічильник */
+.badge-item .count {
+    background-color: #f1813b;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin-left: 8px;
+    text-decoration: none !important; /* Щоб цифра не була закресленою */
+}
+
+
+/* --- Фірмові стилі Анастасії (Tooltips, Badge, Print) --- */
+
+/* Tooltip (Підказка) */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: #4b0082;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* Бейдж творця та анімація */
+.creator-badge {
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    background-color: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    height: 40px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
+.badge-content {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease;
+}
+
+.author-text {
+    margin-top: 10px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.creator-badge:hover {
+    background-color: #6a0dad;
+    height: 70px;
+}
+
+.creator-badge:hover .badge-content {
+    transform: translateY(-5px);
+}
+
+/* Друк бейджу */
+@media print {
+    .creator-badge {
+        background-color: white !important;
+        color: #4b0082 !important;
+        border: 2px solid #4b0082;
+        position: static;
+    }
+
+    .title-text {
+        display: none;
+    }
+
+    .author-text {
+        display: block !important;
+        opacity: 1;
+        margin-top: 0;
+    }
+    
+    button, .add-section {
+        display: none !important;
+    }
+}

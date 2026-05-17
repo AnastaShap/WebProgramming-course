@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>BuyList - Shopping Cart</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div class="container">
+        <main class="main-list">
+            <div class="add-section">
+                <input type="text" placeholder="Назва товару">
+                <button class="btn-add" data-tooltip="Додати товар до списку">Додати</button>
+            </div>
+
+            <div class="item-row">
+                <span class="product-name">Помідори</span>
+                <span class="amount">2</span>
+                <button class="btn-status" data-tooltip="Позначити як куплене">Не куплено</button>
+            </div>
+
+            <div class="item-row">
+                <span class="product-name">Печиво</span>
+                <div class="controls">
+                    <button class="btn-minus" data-tooltip="Зменшити">-</button>
+                    <span class="amount">2</span>
+                    <button class="btn-plus" data-tooltip="Збільшити">+</button>
+                </div>
+                <button class="btn-bought" data-tooltip="Товар вже у кошику">Куплено</button>
+                <button class="btn-remove" data-tooltip="Видалити зі списку">×</button>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <section>
+                <h3>Залишилося</h3>
+                <div class="badge-item">Печиво <span class="count">2</span></div>
+                <div class="badge-item">Сир <span class="count">1</span></div>
+            </section>
+            <section>
+                <h3>Куплено</h3>
+                <div class="badge-item bought">Помідори <span class="count">2</span></div>
+            </section>
+        </aside>
+    </div>
+
+    <div class="creator-badge">
+        <div class="badge-content">
+            <span class="title-text">BuyList</span>
+            <span class="author-text">Виконано: Анастасія</span>
+        </div>
+    </div>
+
+</body>
+</html>
